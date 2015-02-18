@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/mattui/go/utils"
 	"log"
 	"os"
 	"strings"
@@ -30,6 +31,6 @@ func main() {
 			}
 		}
 
-		fmt.Printf("%[1]d vowel%[2]s found\n", count, (map[bool]string{true: "", false: "s"})[count == 1])
+		fmt.Printf("%[1]d vowel%[2]s found\n", count, utils.Ternary(count == 1, "", "s"))
 	}
 }
