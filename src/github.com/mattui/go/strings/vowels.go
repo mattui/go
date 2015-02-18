@@ -20,9 +20,16 @@ func main() {
 		log.Fatal(err)
 	} else {
 		search := strings.ToLower(line)
-		for _, runeValue := range vowels {
-			strValue := string(runeValue)
-			fmt.Printf("%[1]s = %[2]d\n", strValue, strings.Count(search, strValue))
+		count := 0
+
+		for _, searchRune := range search {
+			for _, runeValue := range vowels {
+				if searchRune == runeValue {
+					count++
+				}
+			}
 		}
+
+		fmt.Printf("%[1]d vowel%[2]s found\n", count, (map[bool]string{true: "", false: "s"})[count == 1])
 	}
 }
